@@ -1,10 +1,13 @@
 {
 	"packageManager": "yarn@4.0.1",
+	"type": "module",
 	"scripts": {
 		"prepare": "husky install"
 	},
 	"devDependencies": {
 		"@remix-run/node": "^2.2.0",
+		"@tinyhttp/app": "^2.2.1",
+		"@types/node": "^20.8.10",
 		"husky": "^8.0.0",
 		"lint-staged": "^15.0.2",
 		"prettier": "^3.0.3",
@@ -12,7 +15,8 @@
 		"typescript": "^5.2.2"
 	},
 	"peerDependencies": {
-		"@remix-run/node": "^2.2.0"
+		"@remix-run/node": "^2.2.0",
+		"@tinyhttp/app": "^2.2.1"
 	},
 	"prettier": {
 		"tabWidth": 4,
