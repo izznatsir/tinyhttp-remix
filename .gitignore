@@ -1,0 +1,13 @@
+.yarn
+!.yarn/patches
+!.yarn/releases
+!.yarn/versions
+**/.cache
+**/.DS_Store
+**/.env
+**/.env.local
+**/.env.production
+**/dist
+**/logs
+**/node_modules
+**/*.log

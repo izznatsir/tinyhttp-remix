@@ -1,0 +1,13 @@
+.yarn
+
+# .gitignore
+
+**/.cache
+**/.DS_Store
+**/.env
+**/.env.local
+**/.env.production
+**/dist
+**/logs
+**/node_modules
+**/*.log
