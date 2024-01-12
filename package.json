@@ -1,4 +1,6 @@
 {
+	"name": "tinyhttp-remix",
+	"version": "0.1.2",
 	"packageManager": "pnpm@8.14.1",
 	"type": "module",
 	"scripts": {
