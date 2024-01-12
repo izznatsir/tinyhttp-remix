@@ -1,5 +1,6 @@
-# .gitignore
 **/pnpm-lock.yaml
+
+# .gitignore
 **/.cache
 **/.DS_Store
 **/.env
