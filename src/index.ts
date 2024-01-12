@@ -73,7 +73,16 @@ export function createRemixRequest(
 	req: TinyhttpRequest,
 	res: TinyhttpResponse
 ): Request {
-	let url = new URL(`${req.protocol}://${req.get("host")}${req.url}`);
+	let forwardedHost = req.headers["x-forwarded-host"];
+	if (Array.isArray(forwardedHost)) forwardedHost = forwardedHost.at(-1);
+	// req.hostname doesn't include port information so grab that from
+	// `X-Forwarded-Host` or `Host`
+	let [, hostnamePort] = forwardedHost?.split(":") ?? [];
+	let [, hostPort] = req.headers["host"]?.split(":") ?? [];
+	let port = hostnamePort || hostPort;
+	// Use req.hostname here as it respects the "trust proxy" setting.
+	let resolvedHost = `${req.hostname}${port ? `:${port}` : ""}`;
+	let url = new URL(`${req.protocol}://${resolvedHost}${req.url}`);
 
 	// Abort action/loaders once we can no longer write a response.
 	let controller = new AbortController();
@@ -104,9 +113,7 @@ export async function sendRemixResponse(
 		res.append(key, value);
 	}
 
-	if (
-		remixResponse.headers.get("Content-Type")?.match(/text\/event-stream/i)
-	) {
+	if (remixResponse.headers.get("Content-Type")?.match(/text\/event-stream/i)) {
 		res.flushHeaders();
 	}
 
