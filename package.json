@@ -1,9 +1,29 @@
 {
 	"name": "tinyhttp-remix",
 	"version": "0.1.2",
+	"description": "tinyhttp Remix middleware.",
+	"author": {
+		"name": "Izzuddin Natsir"
+	},
+	"repository": {
+		"url": "https://github.com/izznatsir/tinyhttp-remix"
+	},
+	"files": [
+		"dist",
+		"src"
+	],
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"default": "./dist/index.js",
+			"import": "./dist/index.js"
+		}
+	},
 	"packageManager": "pnpm@8.14.1",
 	"type": "module",
 	"scripts": {
+		"build": "tsup",
+		"format": "prettier -uw .",
 		"prepare": "husky install"
 	},
 	"devDependencies": {
@@ -21,11 +41,22 @@
 		"@tinyhttp/app": "^2.2.1"
 	},
 	"prettier": {
-		"tabWidth": 4,
 		"trailingComma": "es5",
 		"useTabs": true
 	},
 	"lint-staged": {
 		"*": "prettier -uw"
+	},
+	"tsup": {
+		"dts": true,
+		"entry": [
+			"src/index.ts"
+		],
+		"format": [
+			"esm"
+		],
+		"minify": true,
+		"outdir": "dist",
+		"sourcemap": true
 	}
 }
