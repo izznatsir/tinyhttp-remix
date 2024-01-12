@@ -1,7 +1,5 @@
-.yarn
-
 # .gitignore
-
+**/pnpm-lock.yaml
 **/.cache
 **/.DS_Store
 **/.env

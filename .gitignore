@@ -1,7 +1,4 @@
-.yarn
-!.yarn/patches
-!.yarn/releases
-!.yarn/versions
+**/pnpm-lock.yaml
 **/.cache
 **/.DS_Store
 **/.env

@@ -1,5 +1,5 @@
 {
-	"packageManager": "yarn@4.0.1",
+	"packageManager": "pnpm@8.14.1",
 	"type": "module",
 	"scripts": {
 		"prepare": "husky install"
@@ -11,7 +11,7 @@
 		"husky": "^8.0.0",
 		"lint-staged": "^15.0.2",
 		"prettier": "^3.0.3",
-		"tsup": "^7.2.0",
+		"tsup": "^8.0.1",
 		"typescript": "^5.2.2"
 	},
 	"peerDependencies": {
